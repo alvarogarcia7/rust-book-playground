@@ -1,0 +1,6 @@
+[package]
+name = "rust-playground-book"
+version = "0.1.0"
+authors = [""]
+edition = "2018"
+
