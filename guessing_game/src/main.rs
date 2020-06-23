@@ -30,13 +30,17 @@ fn main() {
 
     loop {
         let guess = read_number();
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
+        
+        let (should_break, message) = match guess.cmp(&secret_number) {
+            Ordering::Less => {(false, "Too small!")},
+            Ordering::Greater => {(false, "Too big!")},
+            Ordering::Equal => {(true, "You win!")},
+        };
+
+        println!("{}", message);
+
+        if should_break {
+          break;
         }
     }
 }
