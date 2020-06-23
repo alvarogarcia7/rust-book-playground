@@ -4,6 +4,8 @@ use std::io;
 
 fn read_number() -> i32 {
   loop {
+        println!("Please input your guess:");
+
         let mut guess = String::new();
 
         io::stdin()
@@ -26,11 +28,9 @@ fn main() {
 
     println!("The secret number is {}", secret_number);
 
-    println!("Please input your guess:");
-
     loop {
         let guess = read_number();
-        
+
         let (should_break, message) = match guess.cmp(&secret_number) {
             Ordering::Less => {(false, "Too small!")},
             Ordering::Greater => {(false, "Too big!")},
