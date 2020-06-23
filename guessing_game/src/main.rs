@@ -20,9 +20,12 @@ fn main() {
 
         println!("You guessed: {}", guess);
 
-        let guessed_number: i32 = guess.trim().parse().expect("Cannot parse number");
+        let guess: i32 = match guess.trim().parse() {
+          Ok(num) => num,
+          Err(_) => continue,
+        };
 
-        match guessed_number.cmp(&secret_number) {
+        match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
