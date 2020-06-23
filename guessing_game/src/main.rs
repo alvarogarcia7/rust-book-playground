@@ -3,7 +3,7 @@ use std::cmp::Ordering;
 use std::io;
 
 fn read_number() -> i32 {
-  loop {
+    loop {
         println!("Please input your guess:");
 
         let mut guess = String::new();
@@ -15,10 +15,10 @@ fn read_number() -> i32 {
         println!("You guessed: {}", guess);
 
         match guess.trim().parse() {
-          Ok(num) => return num,
-          Err(_) => continue,
+            Ok(num) => return num,
+            Err(_) => continue,
         };
-  }
+    }
 }
 
 fn main() {
@@ -32,15 +32,15 @@ fn main() {
         let guess = read_number();
 
         let (should_break, message) = match guess.cmp(&secret_number) {
-            Ordering::Less => {(false, "Too small!")},
-            Ordering::Greater => {(false, "Too big!")},
-            Ordering::Equal => {(true, "You win!")},
+            Ordering::Less => (false, "Too small!"),
+            Ordering::Greater => (false, "Too big!"),
+            Ordering::Equal => (true, "You win!"),
         };
 
         println!("{}", message);
 
         if should_break {
-          break;
+            break;
         }
     }
 }
