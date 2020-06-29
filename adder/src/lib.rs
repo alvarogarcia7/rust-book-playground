@@ -1,3 +1,4 @@
+// Requires rust unstable (see README)
 #![feature(test)]
 
 extern crate test;
@@ -18,11 +19,13 @@ mod tests {
 
     #[bench]
     fn bench1(b: &mut Bencher) {
+        // black_box: https://doc.rust-lang.org/stable/unstable-book/library-features/test.html#gotcha-optimizations
         let n = test::black_box(10000);
 
         let a = b.iter(|| {
             (0..n).fold(0, |old, new| add2(old) + add2(new))
         });
+        
         println!("{:?}", a);
     }
 
