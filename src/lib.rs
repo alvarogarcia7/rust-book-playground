@@ -11,4 +11,13 @@ mod tests {
 
         assert_eq!(vector.len(), 0);
     }
+
+    #[test]
+    fn adding_elements_to_a_vector() {
+        let mut vector: Vec<i32> = Vec::new();
+
+        vector.push(2);
+
+        assert_eq!(vector.len(), 1);
+    }
 }
