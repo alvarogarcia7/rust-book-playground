@@ -20,4 +20,14 @@ mod tests {
 
         assert_eq!(vector.len(), 1);
     }
+
+    // #[test]
+    // fn cannot_add_an_element_to_an_immutable_vector() {
+    //     let vector: Vec<i32> = Vec::new();
+
+    //     vector.push(2);
+    //     ^^^^^^ cannot borrow as mutable
+
+    //     assert_eq!(vector.len(), 1);
+    // }
 }
