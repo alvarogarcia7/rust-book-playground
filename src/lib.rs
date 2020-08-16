@@ -103,4 +103,14 @@ mod hashmap_tests{
         assert_eq!(map.get(&10), Some(&12));
     }
 
+    #[test]
+    fn overriding_an_element() {
+        let mut map : HashMap<i32, i32> = HashMap::new();
+
+        map.insert(10, 12);
+        map.insert(10, 20);
+
+        assert_eq!(map.len(), 1);
+        assert_eq!(map.get(&10), Some(&20));
+    }
 }
