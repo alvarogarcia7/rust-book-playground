@@ -93,11 +93,14 @@ mod hashmap_tests{
     }
 
     #[test]
+    // Source: https://doc.rust-lang.org/std/collections/struct.HashMap.html#method.get
     fn adding_one_element() {
         let mut map : HashMap<i32, i32> = HashMap::new();
 
-        map.insert(10, 10);
+        map.insert(10, 12);
 
         assert_eq!(map.len(), 1);
+        assert_eq!(map.get(&10), Some(&12));
     }
+
 }
