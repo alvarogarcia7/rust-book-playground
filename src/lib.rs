@@ -91,4 +91,13 @@ mod hashmap_tests{
 
         assert_eq!(map.len(), 0);
     }
+
+    #[test]
+    fn adding_one_element() {
+        let mut map : HashMap<i32, i32> = HashMap::new();
+
+        map.insert(10, 10);
+
+        assert_eq!(map.len(), 1);
+    }
 }
