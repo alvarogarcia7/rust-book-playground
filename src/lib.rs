@@ -2,6 +2,10 @@ pub mod lib{
     pub fn increase_in_array(vector: &mut Vec<i32>) {
         vector[0] = vector[0] + 1;
     }
+
+    pub fn increase_in_array_2(vector: &mut Vec<i32>) -> i32 {
+        vector[0] + 1
+    }
 }
 
 #[cfg(test)]
@@ -47,6 +51,16 @@ mod library_tests{
         vector.push(0);
 
         lib::increase_in_array(&mut vector);
+
+        assert_eq!(vector[0], 1);
+    }
+
+    #[test]
+    fn split_the_responsibility() {
+        let mut vector: Vec<i32> = Vec::new();
+        vector.push(0);
+
+        vector[0] = lib::increase_in_array_2(&mut vector);
 
         assert_eq!(vector[0], 1);
     }
