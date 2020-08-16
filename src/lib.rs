@@ -1,3 +1,9 @@
+pub mod lib{
+    pub fn increase_in_array(vector: &mut Vec<i32>) {
+        vector[0] = vector[0] + 1;
+    }
+}
+
 #[cfg(test)]
 mod tests {
     #[test]
@@ -30,4 +36,18 @@ mod tests {
 
     //     assert_eq!(vector.len(), 1);
     // }
+}
+
+#[cfg(test)]
+mod library_tests{
+    use crate::lib;
+    #[test]
+    fn increased_the_first_element() {
+        let mut vector: Vec<i32> = Vec::new();
+        vector.push(0);
+
+        lib::increase_in_array(&mut vector);
+
+        assert_eq!(vector[0], 1);
+    }
 }
