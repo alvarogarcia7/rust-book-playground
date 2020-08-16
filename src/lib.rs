@@ -1,14 +1,14 @@
 pub mod lib{
-    pub fn increase_in_array(vector: &mut Vec<i32>) {
+    pub fn select_element_and_perform_business_logic_and_assign(vector: &mut Vec<i32>) {
         vector[0] = vector[0] + 1;
     }
 
-    pub fn increase_in_array_2(vector: &mut Vec<i32>) -> i32 {
+    pub fn select_element_and_perform_business_logic(vector: &mut Vec<i32>) -> i32 {
         vector[0] + 1
     }
 
 
-    pub fn increase_in_array_3(element: i32) -> i32 {
+    pub fn perform_business_logic(element: i32) -> i32 {
         element + 1
     }
 }
@@ -55,7 +55,7 @@ mod library_tests{
         let mut vector: Vec<i32> = Vec::new();
         vector.push(0);
 
-        lib::increase_in_array(&mut vector);
+        lib::select_element_and_perform_business_logic_and_assign(&mut vector);
 
         assert_eq!(vector[0], 1);
     }
@@ -65,7 +65,7 @@ mod library_tests{
         let mut vector: Vec<i32> = Vec::new();
         vector.push(0);
 
-        vector[0] = lib::increase_in_array_2(&mut vector);
+        vector[0] = lib::select_element_and_perform_business_logic(&mut vector);
 
         assert_eq!(vector[0], 1);
     }
@@ -76,7 +76,7 @@ mod library_tests{
         let mut vector: Vec<i32> = Vec::new();
         vector.push(0);
 
-        vector[0] = lib::increase_in_array_3(vector[0]);
+        vector[0] = lib::perform_business_logic(vector[0]);
 
         assert_eq!(vector[0], 1);
     }
